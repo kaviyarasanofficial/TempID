@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="index.css"/>
+
+    <script type="text/javascript" src="script.js"></script>
+    
+</head>
+
+<body>
+    
+          <div class="container">
+            <div class="header">
+                <h2> Welcome To Visitor</h2>
+            </div>
+            <form id="form" class="form">
+                <div class="form-control">
+                    <label for="username">Name</label>
+                    <input type="text" placeholder="Ponniyin Selvan" id="username" />
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+                
+                <div class="form-control">
+                    <label for="username">Phone Number</label>
+                    <input type="tel" placeholder="+91-6383-80000" id="password"/>
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+                <div class="form-control">
+                    <label for="username">Email</label>
+                    <input type="email" placeholder="welcome@gmail.com" id="email" />
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+                
+                <div class="form-control">
+                    <label for="username">Proof ID Number</label>
+                    <input type="text" placeholder="TRQN000021" id="password2"/>
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+                <button>Submit</button>
+            </form>
+        </div>
+
+    <div id="camera" style="height: auto;;width: auto;; text-align:left;"></div>
+
+    <!--FOR THE SNAPSHOT-->
+   <input type="button" value="Take Visitor Picture" id="btPic" onclick="takeSnapShot()" /> 
+    <p id="snapShot"></p>
+</body>
+
+<script>
+    // CAMERA SETTINGS.
+    Webcam.set({
+        width: 250,
+        height: 190,
+        image_format: 'jpeg',
+        jpeg_quality: 100
+    });
+    Webcam.attach('#camera');
+
+    // SHOW THE SNAPSHOT.
+    takeSnapShot = function () {
+        Webcam.snap(function (data_uri) {
+            document.getElementById('snapShot').innerHTML = 
+                '<img src="' + data_uri + '" width="70px" height="50px" />';
+        });
+    }
+</script>
+
+</body>
+</html>
